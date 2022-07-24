@@ -1,0 +1,57 @@
+{% extends 'admin/admindashboard.html' %}
+
+{% block content %}
+
+{% load static %}
+
+<style>
+    table thead tr th{
+        font-family: var(--bs-font-sans-serif);
+    font-size: 1rem;
+    font-weight: 700;
+    }
+    table thead tr td{
+        font-family: var(--bs-font-sans-serif);
+    font-size: 1rem;
+    font-weight: 400;
+    }
+</style>
+
+<div class="activity">
+    <div class="title">
+        <i class="fas fa-gift me-2">    </i>
+        <span class="text">Products</span>
+    </div>
+    <a class="btn btn-primary btn-xs" href="{% url 'productform' %}"><span class="glyphicon glyphicon-trash" ></span>Add New Product </a>
+
+
+    <table class="table table-hover" id="dev-table">
+        <thead>
+            <tr>
+                <th>Product ID</th>
+                <th>Product Category</th>
+                <th>Product Name</th>
+                <th>Product Details</th>
+                <th>Product Price</th>
+                <th>Product image</th>
+            </tr>
+        </thead>
+        {% for p in product %}
+        <tr>
+            <td> {{p.id}}</td>
+            <td> {{p.category}}</td>
+            <td>{{p.name}}</td> 
+            <td>{{p.description}}</td>
+            <td>{{p.price}}</td>
+            <td><img src="/media/{{p.image}}" style="max-width: 150px;" height="50px"></td>
+            <td><a class="btn btn-success btn-xs" href="/edit_product/{{p.id}}"><span class="glyphicon glyphicon-trash"></span>edit</a></td>
+            <td><a class="btn btn-danger btn-xs" href="/delete_product/{{p.id}}"><span class="glyphicon glyphicon-trash"></span>Delete</a></td>
+
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+</div>
+
+
+{%endblock content%}

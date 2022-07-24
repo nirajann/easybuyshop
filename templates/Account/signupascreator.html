@@ -1,0 +1,72 @@
+{% extends 'base2.html' %}
+{% load static %}
+{% block css %}<link rel="stylesheet" type="text/css" href="{% static 'css/signupascreator.css' %}">{% endblock %}
+{% block content %}
+<div class="mainboy" style="background: url(/static/images/backgroundcre.jpg); height:100vh;">
+ <h1 class="h11"><em>Become a Creator</em></h1>
+
+<section >
+  <div class="mask d-flex align-items-center h-100 gradient-custom-3">
+    <div class="container h-200">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-12 col-md-9 col-lg-7 col-xl-6">
+          <div class="card" style="border-radius: 15px;">
+            <div class="card-body p-5">
+              <h2 class="text-uppercase text-center mb-5">Create an account</h2>
+
+              <form action="" method="POST" class="sign-in-form">
+				 {% csrf_token %}
+                <div class="form-outline mb-4">
+                  <input type="text"name="username" placeholder="Username" id="form3Example1cg" class="form-control form-control-lg" />
+                  <label class="form-label" for="form3Example1cg">Your UserName</label>
+                </div>
+                 <div class="form-outline mb-4">
+                  <input type="text"name="firstname" placeholder="firstname" id="form3Example1cg" class="form-control form-control-lg" />
+                  <label class="form-label" for="form3Example1cg">Firstname</label>
+                </div>
+				
+				<div class="form-outline mb-4">
+                  <input type="text" name="lastname" placeholder="lastname" id="form3Example1cg" class="form-control form-control-lg" />
+                  <label class="form-label" for="form3Example1cg">lastName</label>
+                </div>
+
+                <div class="form-outline mb-4">
+                  <input type="email" name="email" placeholder="Email" id="form3Example3cg" class="form-control form-control-lg" />
+                  <label class="form-label"  name="email" for="form3Example3cg">Your Email</label>
+                </div>
+				<div class="form-outline mb-4">
+                  <input type="text" name="phone" placeholder="Phone" id="form3Example3cg" class="form-control form-control-lg" />
+                  <label class="form-label"  name="phone" for="form3Example3cg">Phone Number</label>
+                </div>
+        	<div class="form-outline mb-4">
+                  <input type="text" name="address" placeholder="address"  id="form3Example3cg" class="form-control form-control-lg" />
+                  <label class="form-label"  name="address" for="form3Example3cg">Address</label>
+                </div>
+
+                <div class="form-outline mb-4">
+                  <input type="password"  name="password" placeholder="Password" id="form3Example4cg" class="form-control form-control-lg" />
+                  <label class="form-label" for="form3Example4cg">Password</label>
+                </div>
+
+                <div class="form-outline mb-4">
+                  <input type="password"   placeholder="confirmPassword" id="form3Example4cdg" class="form-control form-control-lg" />
+                  <label class="form-label" for="form3Example4cdg">Repeat your password</label>
+                  
+                </div>
+                <button  type="submit" value="register" class="justify-content-center btn btn-info ">Register</button>
+               
+              </form>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+  </div>
+</section>
+
+
+</div>
+{% endblock content %}

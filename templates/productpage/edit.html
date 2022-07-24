@@ -1,0 +1,147 @@
+{% extends 'base2.html' %}
+{% load static %}
+{% block css %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/edit.css' %}">{% endblock %}
+
+{% block content %}
+{% load cart %}
+{% load custom_filter %}
+
+
+
+{% endblock content %}
+
+{% block section %}
+
+<div class="container">
+	<form action="" method="POST">
+		<div class="card">
+			{% csrf_token %}
+			<div class="container-fliud">
+				<div class="wrapper row">
+					<div class="preview col-md-6">
+
+						<div class="preview-pic tab-content">
+<<<<<<< HEAD
+						  <div class="tab-pane active" id="pic-1"><img src="{{numbers.image.url}}" /></div>
+			
+						</div>
+						<ul class="preview-thumbnail nav nav-tabs">
+							 
+						</ul>		
+=======
+							<div class="tab-pane active" id="pic-1"><img src="{{numbers.image.url}}" /></div>
+
+						</div>
+						<ul class="preview-thumbnail nav nav-tabs">
+
+
+						</ul>
+
+>>>>>>> 9d4f1bde24b5be2d6377a4ac4cbfceb47a13eabf
+					</div>
+					<div class="details col-md-6">
+						<label class="custom-field one">
+							<input type="text" name="{{numbers.name}}" placeholder="{{numbers.name}}" readonly />
+
+						</label>
+						<div class="rating">
+							<div class="stars">
+								<span class="fa fa-star checked"></span>
+								<span class="fa fa-star checked"></span>
+								<span class="fa fa-star checked"></span>
+								<span class="fa fa-star"></span>
+								<span class="fa fa-star"></span>
+							</div>
+							<span class="review-no">41 reviews</span>
+						</div>
+						<p class="product-description">{{numbers.description}}</p>
+						<h4 class="price">current price: <span>Rs <label class="custom-field one"> <input type="text"
+										name="{{numbers.price}}" placeholder="{{numbers.price}}" readonly /></span></h4>
+						<p class="vote"><strong>91%</strong> of buyers enjoyed this product! <strong>(87 votes)</strong>
+						</p>
+						<h5 class="sizes">sizes:
+							<fieldset>
+								<input id="item-1" class="radio-inline__input" type="radio" name="size" value="s"
+									checked="checked" />
+								<label class="radio-inline__label" for="item-1">
+									s
+								</label>
+								<input id="item-2" class="radio-inline__input" type="radio" name="size" value="m" />
+								<label class="radio-inline__label" for="item-2">
+									m
+								</label>
+								<input id="item-3" class="radio-inline__input" type="radio" name="size" value="l" />
+								<label class="radio-inline__label" for="item-3">
+									l
+								</label>
+								<input id="item-4" class="radio-inline__input" type="radio" name="size" value="xl" />
+								<label class="radio-inline__label" for="item-4">
+									xl
+								</label>
+							</fieldset>
+						</h5>
+						<h5 class="colors">Choose Colors:
+							<input type="color" id="favcolor" name="color" value=""><br><br>
+							<hr>
+							<div class="form-group">
+								<label for="">Address</label>
+								<input type="text" name="address" id="" class="form-control" placeholder=""
+									aria-describedby="helpId">
+
+							</div>
+							<div class="form-group">
+								<label for="">Phone</label>
+								<input type="text" name="phone" id="" class="form-control" placeholder=""
+									aria-describedby="helpId">
+							</div>
+							<div class="m-3 p-3">
+								<input type="submit" class="custom-btn btn-6" value="buynow">
+							</div>
+					</div>
+
+				</div>
+
+	</form>
+	<div class="comment-form">
+		<h2 class="comment-headline" style="  font-size: 35px;">Leave a review</h2>
+		<form id="submit-form" action="" method="POST">
+		  {% csrf_token %}
+		  <p>
+			<input id="name" name="r_name" class="cmtform-input" type="text" placeholder="Your Name*" 
+			style=" width: 100%; height:70px;
+			font-size: 15px;
+			border: 2px solid #000;
+			border-radius: 5px;padding: 1em;">
+			<small class="name-error"></small>
+		  </p>
+		  <p>
+			<input id="email" name="r_email" class="cmtform-input" type="email" placeholder="Your Email*" 
+			style=" width: 100%; 
+			height:70px;
+			border: 2px solid #000;
+			font-size: 15px;
+			border-radius: 5px;padding: 1em;">
+			<small class="name-error"></small>
+		  </p>
+		  <p class="full-width">
+			<textarea  minlength="20" name="r_message" id="message" cols="30" rows="7" placeholder="Your Review*" required style="border: 2px solid #000; font-size: 15px; "></textarea>
+			<small></small>
+		  </p>
+		  <p class="full-width">
+			<input type="submit" class="btn btn-dark" style="width:200px; height:40px; font-size:20px;" value="Submit Review" onclick="checkValidations()">
+		  </p>
+		</form>
+	  </div>
+
+</div>
+
+
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+{% endblock section %}

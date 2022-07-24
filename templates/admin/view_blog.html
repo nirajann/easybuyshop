@@ -1,0 +1,52 @@
+{% extends 'admin/admindashboard.html' %}
+
+{% block content %}
+
+{% load static %}
+
+<style>
+    table thead tr th{
+        font-family: var(--bs-font-sans-serif);
+    font-size: 1rem;
+    font-weight: 700;
+    }
+    table thead tr td{
+        font-family: var(--bs-font-sans-serif);
+    font-size: 1rem;
+    font-weight: 400;
+    }
+</style>
+
+<div class="activity">
+    <div class="title">
+        <i class="fas fa-blog me-2">    </i>
+        <span class="text">Blogs</span>
+    </div>
+    <a class="btn btn-primary btn-xs" href="{% url 'blogform' %}"><span class="glyphicon glyphicon-trash"></span>Add New Blog</a>
+
+    <table class="table table-hover" id="dev-table">
+        <thead>
+            <tr>
+                <th>Blog ID</th>
+                <th>Blog Name</th>
+                <th>Bog Description</th>
+                <th>Blog image</th>
+            </tr>
+        </thead>
+        {% for single_blog in single_blog %}
+        <tr>
+            <td> {{single_blog.blog_id}}</td>
+            <td>{{single_blog.blog_name}}</td>
+            <td>{{single_blog.blog_details}}</td>
+            <td><img src="/media/{{single_blog.blog_image}}" style="max-width: 150px;" height="50px"></td>
+            <td><a class="btn btn-success btn-xs" href="/edit_blog/{{single_blog.blog_id}}"><span class="glyphicon glyphicon-trash"></span>edit</a></td>
+            <td><a class="btn btn-danger btn-xs" href="/delete_blog/{{single_blog.blog_id}}"><span class="glyphicon glyphicon-trash"></span>Delete</a></td>
+
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+</div>
+
+
+{%endblock content%}

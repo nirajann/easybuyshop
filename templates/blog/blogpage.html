@@ -1,0 +1,42 @@
+{% extends 'base2.html' %}
+{% load static %}
+{% block css %}<link rel="stylesheet" type="text/css" href="{% static 'css/blogpage.css' %}">{% endblock %}
+{% block content %}
+ <div class="container">
+<section class="blogtext pb-5 pt-5">
+	<div class="content pb-5">
+		<h2>Blogs</h2>
+		<h2>Blogs</h2>
+	</div>
+</section>
+ 
+              {% for blog in blogs %} 
+<div class="card pt-5">
+
+  <div class="card-text">
+    <div class="">
+     <img src="{{blog.blog_image.url}}" alt="" width="500px;">
+    </div>
+    <div class="title-total">   
+      <div class="title">{{blog.blog_name}}</div>
+      <h2>Morgan Sweeney</h2>
+  
+  <div class="desc">{{blog.blog_details}}</div>
+  <div class="actions">
+    <button><i class="far fa-heart"></i></button>
+    <a href="{% url 'blog_detail' blog.blog_id %}" class="btn btn-success"> Read More</a>
+  </div></div>
+ 
+  </div>
+   
+</div>
+<br>
+<hr>
+<br>
+{% endfor %}
+</div>
+{% endblock content %}
+
+{% block section %}
+      
+{% endblock section %}

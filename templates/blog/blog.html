@@ -1,0 +1,41 @@
+{% extends 'base2.html' %}
+{% load static %}
+{% block css %}<link rel="stylesheet" type="text/css" href="{% static 'css/blog.css' %}">{% endblock %}
+{% block content %}
+
+<section class="cta" style="background-image: url(static/images/try.png);">
+  <h2 class="form-title"><a href="{% url 'home' %}"> Home </a>| Blogs</h2>
+</section>
+
+<div class="container mx-auto mt-4" >
+  <div class="row">
+    {% for blog in blogs %} 
+    <div class="col-md-4">
+      <div class="card" style="width: 22rem">
+        <img src="{{blog.blog_image.url}}" alt="">
+        <div class="card-body">
+          <h6 class="card-title mb-2 ">{{blog.blog_name}}</h6> <br><br>
+          <a href="{% url 'blog_detail' blog.blog_id %}" class="button mr-2"> Read More</a>
+        </div>
+      </div>
+    </div>
+    {% endfor%} 
+  </div>
+  <div class="pagination" style=" text-align: center;">
+    <!-- <li class="page-item previous-page disable"><a class="page-link" href="#">Prev</a></li>
+    <li class="page-item current-page active" ><a class="page-link" href="#">1</a></li>
+    <li class="page-item dots"><a class="page-link" href="#">...</a></li>
+    <li class="page-item current-page"><a class="page-link" href="#">5</a></li>
+    <li class="page-item current-page"><a class="page-link" href="#">6</a></li>
+    <li class="page-item dots"><a class="page-link" href="#">...</a></li>
+    <li class="page-item current-page"><a class="page-link" href="#">10</a></li>
+    <li class="page-item next-page"><a class="page-link" href="#">Next</a></li> -->
+</div>
+</div>
+
+{% endblock content %}
+
+
+{% block section %}
+      
+{% endblock section %}

@@ -1,0 +1,134 @@
+.form-title{
+    color: rgb(0, 0, 0);
+    padding: 95px;
+    /* margin-top: 100px; */
+    text-align: center;
+    font-size: 50px;
+    font-weight: 300;
+}
+
+.cta{
+    margin: 10px auto;
+    width: 100%;
+    height: 40%;
+    background-image: url(static/images/try.png);
+    background-position: center;
+    background-size: cover;
+    padding: 0%;
+}
+
+.form-title a{
+    font-size: 50px;
+    font-weight: 300;
+    opacity: 200%;
+    color: black;
+}
+
+.form-title a:hover{
+    color:#FF5722;
+}
+
+:root {
+    --gradient: linear-gradient(to left top, #DD2476 10%, #FF512F 90%) !important;
+  }
+  
+.card {
+    border: 1px solid black;
+    color: rgba(250, 250, 250, 0.8);
+    margin-top: 100px;
+    margin-bottom: 2rem;
+}
+
+.card-title{
+    color: black;
+    font-size: 1.75rem;
+    font-weight: 400;
+    cursor: pointer;
+}
+
+.card-title:hover{
+    color: #FF5722;
+
+}
+
+.button {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 4px 13px;
+    margin-bottom: 10px;
+    color: black;
+    border: 2px solid black;
+    font-size: 11px;
+    font-weight: 400;
+    text-transform: uppercase;
+    text-decoration: none;
+    letter-spacing: 2px;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    border-radius: 0;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    -webkit-transition: all 0.2s cubic-bezier(0.000, 0.000, 0.580, 1.000);
+    -moz-transition: all 0.2s cubic-bezier(0.000, 0.000, 0.580, 1.000);
+    -o-transition: all 0.2s cubic-bezier(0.000, 0.000, 0.580, 1.000);
+    -ms-transition: all 0.2s cubic-bezier(0.000, 0.000, 0.580, 1.000);
+    transition: all 0.2s cubic-bezier(0.000, 0.000, 0.580, 1.000);
+}
+
+.button:hover{
+    color: #fff;
+    border-color: #000;
+    background: #000;
+    outline: none;
+}
+
+.pagination{
+    margin: 30px 30px 60px;
+    user-select: none;
+}
+
+.pagination li{
+    display: inline-block;
+    margin: 5px;
+    box-shadow: 0 5px 25px rgb(1, 1, 1 / 10% );
+}
+
+.pagination li a{
+    color: black;
+    text-decoration: none;
+    font-size: 1.2rem;
+    line-height: 45px;
+}
+
+.previous-page, .next-page{
+    background: #0AB1CE;
+    width: 80px;
+    border-radius: 45px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+/* .previous-page:hover{
+    transform: translateX(-5px);
+}
+
+.next-page:hover{
+    transform: translateX(5px);
+} */
+
+.current-page, .dots{
+    background: #ccc;
+    width: 45px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+/* .active{
+    background: #0AB1CE;
+}
+
+.disable{
+    background: #CCC;
+} */

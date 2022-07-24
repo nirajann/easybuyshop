@@ -1,0 +1,57 @@
+{% extends 'admin/admindashboard.html' %}
+
+{% block content %}
+
+{% load static %}
+
+
+<div class="activity">
+    <div class="title">
+        <i class="fas fa-user me-2">    </i>
+        <span class="text">Customers</span>
+    </div>
+
+    <div class="activity-data">
+
+        <div class="data names">
+            <span class="data-title">Name</span>
+            {% for c in Customer %}
+            <span class="data-list">{{c.first_name}} {{c.last_name}}</span>
+            {% endfor %}
+            
+        </div>
+        <div class="data email">
+            <span class="data-title">Email</span>
+            {% for c in Customer %}
+            <span class="data-list">{{c.email}}</span>
+            {% endfor %}
+        
+        </div>
+        <div class="data joined">
+            <span class="data-title">Phone</span>
+            {% for c in Customer %}
+            <span class="data-list">{{c.phone}}</span>
+            {% endfor %}
+        </div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Delete User</th>
+                </tr>
+                
+            </thead>
+            {% for c in Customer %}
+            <tr>
+                <td><a class="btn btn-danger btn-xs" href="/delete_customer/{{c.id}}"><span class="glyphicon glyphicon-trash"></span>Delete</a></td>
+            {% endfor %}
+            </tr>
+        </table>
+
+
+    </div>
+</div>
+</div>
+
+
+{%endblock content%}
+

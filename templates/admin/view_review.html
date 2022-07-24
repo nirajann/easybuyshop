@@ -1,0 +1,44 @@
+{% extends 'admin/admindashboard.html' %}
+
+{% block content %}
+
+{% load static %}
+
+<style>
+    table thead tr th{
+        font-family: var(--bs-font-sans-serif);
+    font-size: 1rem;
+    font-weight: 700;
+    }
+    table thead tr td{
+        font-family: var(--bs-font-sans-serif);
+    font-size: 1rem;
+    font-weight: 400;
+    }
+</style>
+
+<div class="activity">
+    <div class="title">
+        <i class="fas fa-star me-2">    </i>
+        <span class="text">Review</span>
+    </div>
+
+    <table class="table table-hover" id="dev-table">
+        <!-- <thead>
+            <tr>
+                <th>Comment</th>
+            </tr>
+        </thead> -->
+        {% for r in review %}
+        <tr>
+            <td> {{r.r_name}}</td>
+            <td>{{r.r_email}}</td>
+            <td>{{r.r_message}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+</div>
+
+
+{%endblock content%}

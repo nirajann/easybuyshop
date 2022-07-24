@@ -1,0 +1,49 @@
+{% extends 'base2.html' %}
+{% load static %}
+{% block css %}<link rel="stylesheet" type="text/css" href="{% static 'css/creatorlogin.css' %}">{% endblock %}
+{% block content %}
+<br>
+<div class="pt-5">
+    <div class="login-wrap pt-5">
+        <div class="login-html">
+       
+            <input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab">Creator Login</label>
+            <input id="tab-2" type="radio" name="tab" class="sign-up"><label for="tab-2" class="tab"></label>
+            
+            
+            <div class="login-form">
+                <div class="sign-in-htm">
+                <form action="" method="POST" class="sign">
+                    {% csrf_token %}
+                    <div class="group">
+                        <label for="user"  name="username"  placeholder="Username" class="label">Username</label>
+                        <input type="text" name="username" placeholder="Username" required/>
+                    </div>
+                    <div class="group">
+                        <label for="pass"  name="password"  placeholder="password" class="label">Password</label>
+                        <input type="password" name="password" placeholder="Password" required/>
+                    </div>
+                    <div class="group">
+                        <input id="check" type="checkbox" class="check" checked>
+                        <label for="check"><span class="icon"></span> Keep me Signed in</label>
+                    </div>
+                    <div class="group">
+                     <button type="submit" class="button1">Login</button>
+                
+                    </div>
+                    </form> 
+                    <div class="hr"></div>
+                    <div class="foot-lnk">
+                        <a href="#forgot" id="forgot">Forgot Password?</a>
+                    </div>
+                </div>
+            
+            </div>
+        </div>
+    </div>
+
+{% endblock content %}
+
+{% block section %}
+      
+{% endblock section %}

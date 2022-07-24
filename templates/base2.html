@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/base.css' %}">
+    	<link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}"> 
+    <link rel="stylesheet" type="text/css" href="{% static 'css/contact.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,600;1,900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+
+    {% block css %}{% endblock %}
+    <!-- for khalti -->
+    <script src="https://khalti.s3.ap-south-1.amazonaws.com/KPG/dist/2020.12.17.0.0.0/khalti-checkout.iffe.js"></script> 
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    
+</head>
+
+<body style="background-color:#2cbabd;">
+<header>
+<div class="navbar">
+
+    <label for="togglericon" class="toggler" checked></label>
+    <input type="checkbox" id="togglericon" class="toggler" />
+
+    <div class="brand">
+      <a href="#" class="logo"><img src="/static/images/logo.png" height="20px"/></a>
+      
+    </div>
+
+    <div class="nav">
+      <!-- reposition the menu with: -->
+      <!-- div class="nav at-center" -->
+      <!-- div class="nav at-right"  -->
+      {% if request.session.customer %}
+                    <li><a href="/home"><i class="fa fa-home" aria-hidden="true"></i></a></li>
+                    <li><a  href="/store">Shop</a></li>
+                    <li><a href="{% url 'blog' %}">Blog</a></li>
+                    <div class="form-inline my-2 my-lg-0">          
+                    <li><a href="/contact">Contact us</a></li>
+                  {% else %}
+                  <li><a href="/home"><i class="fa fa-home " style="font-size:20px" aria-hidden="true"></i></a></li>
+                  
+                    <li><a href="/contact">Contact us</a></li>
+                    <li class="nav-item dropdown">
+                      <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      Shop
+                      </a>
+                      <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                
+                      <a class="dropdown-item" href="/store" ><i class='fas fa-store' style="font-size:15px"> Store</i></a>
+                      <a class="dropdown-item" href="/categorie"><i class="fa fa-list-alt" style="font-size:15px"> Category</i></a>
+                        
+                      </div>
+                    
+                    </li>  
+                
+                    <li><a href="{% url 'blog' %}">Blog</a></li>
+                    <div class="form-inline my-2 my-lg-0">
+                  
+
+                    <li><a href="/contact">Contact us</a></li>
+                    <li class="nav-item dropdown">
+                      <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      Creator
+                      </a>
+                      <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                      {% if request.session.customer %}
+                      <a class="dropdown-item" href="{% url 'profile' %}">Profile</a>
+                      <a class="dropdown-item" href="/orders">order</a>
+                      <a class="dropdown-item" href="/logout">Log Out</a>
+                        {% else %}
+                        <a class="navbar-brand" href="/logincreator"><i class='fas fa-sign-in-alt rounded-circle' style='font-size:15px'></i>login</a>
+                        <a class="navbar-brand" href="/creator"><i class='fas fa-sign-in-alt rounded-circle' style='font-size:15px'></i>signup</a>
+                    
+                      </div>
+                      {% endif %}
+                    </li>   
+                  
+                  {% endif %}
+            <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class='far fa-user rounded-circle' style='font-size:20px'> </i>
+           
+
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            {% if request.session.customer %}
+              <a class="dropdown-item" href="{% url 'profile' %}">Profile</a>
+              <a class="dropdown-item" href="/orders">order</a>
+              <a class="dropdown-item" href="/logout">Log Out</a>
+              {% else %}
+                        
+              <a class="navbar-brand" href="/login"> <i class='fas fa-sign-in-alt rounded-circle' style='font-size:15px'></i>login</a>
+              <a class="navbar-brand" href="/adminlogin"> <i class='fas fa-sign-in-alt rounded-circle' style='font-size:15px'></i></i>adminlogin </a>
+              
+                          
+            {% endif %}
+      
+     
+    </div>
+  </div>
+</div>
+</header>
+    {% block content %}
+    
+   
+    {% endblock %} 
+     
+    <br>
+    {% block section %}
+    {% endblock section %}
+{% comment %} </div> {% endcomment %}
+<script src="https://kit.fontawesome.com/0f648027cc.js" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+<script src="js/addons/rating.js"></script>
+<script src="/static/js/admindashboard.js"></script>
+<script type="text/javascript" src="{% static '/static/js/cart.js' %}"></script>
+<script>$('.dropdown-toggle').dropdown()</script>
+
+
+</body>
+
+</html>

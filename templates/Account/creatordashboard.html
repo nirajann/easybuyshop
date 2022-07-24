@@ -1,0 +1,122 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block css %}<link rel="stylesheet" type="text/css" href="{% static 'css/creatordashboard.css' %}">{% endblock %}
+{% block content %}
+<div class="pt-5">
+ <h1 class="texth1 pt-5"><em>Welcome, {{customers.username}}</em></h1>
+  {% for message in messages  %}
+                  <p class= "createdmesseges">{{message}}</p>
+    {% endfor %}
+ </div>               
+<div class="container tm-mt-big tm-mb-big">
+    <div class="row">
+      <div class="col-xl-9 col-lg-10 col-md-12 col-sm-12 mx-auto">
+        <div class="tm-bg-primary-dark tm-block tm-block-h-auto">
+          <div class="row">
+            <div class="col-12">
+              <h2 class="tm-block-title d-inline-block">Add Product</h2>
+            </div>
+          </div>
+          <div class="row tm-edit-product-row">
+            <div class="col-xl-6 col-lg-6 col-md-12">
+                <form class="tm-edit-product-form" action="" enctype="multipart/form-data" method="POST">
+                    {% csrf_token %}
+                <div class="form-group mb-3">
+                  <label
+                    for="name"
+                    >Product Name
+                  </label>
+                  <input
+                    id="name"
+                    name="name"
+                    type="text"
+                    class="form-control validate"
+                    required
+                  />
+                </div>
+                <div class="form-group mb-3">
+                  <label
+                    for="description"
+                    >Description</label
+                  >
+                  <textarea
+                    class="form-control validate"
+                    name="description"
+                    rows="3"
+                    required
+                  ></textarea>
+                </div>
+                <div class="form-group mb-3">
+                  <label
+                    for="category"
+                    >Category</label
+                  >
+                  <select
+                    class="custom-select tm-select-accounts"
+                    name="category"
+                    id="category"
+                  >
+                    <option selected>Select category</option>
+                    <option value="1">T-shirts</option>
+                    <option value="2">Sweatshirts</option>
+                    <option value="3">Trending</option>
+                  </select>
+                </div>
+                <div class="row">
+                    <div class="form-group mb-3 col-xs-12 col-sm-6">
+                        <label
+                          for="expire_date"
+                          >Price
+                        </label>
+                        <input
+                          id="expire_date"
+                          name="price"
+                          type="text"
+                          class="form-control validate"
+                          data-large-mode="true"
+                        />
+                      </div>
+                </div>
+                
+            </div>
+            <div class="col-xl-6 col-lg-6 col-md-12 mx-auto mb-4">
+              <div class="tm-product-img-dummy mx-auto">
+                <i
+                  class="fas fa-cloud-upload-alt tm-upload-icon"
+                  onclick="document.getElementById('fileInput').click();"
+                ></i>
+              </div>
+              <div class="custom-file mt-3 mb-3">
+                <input id="fileInput" type="file" name="image" style="display:none;" />
+                <input
+                  type="button"
+                  class="btn btn-primary btn-block mx-auto"
+                  
+                  value="Upload a image"
+                  onclick="document.getElementById('fileInput').click();"
+                />
+                
+              </div>
+            </div>
+            <div class="col-12">
+              <button type="submit" value="submit" class="btn">Add Product  </button>
+            </div>
+          </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<script>
+document.querySelectorAll(".text-input").forEach((element) => {
+    element.addEventListener("blur", (event) => {
+        if (event.target.value != "") {
+            event.target.nextElementSibling.classList.add("filled");
+        } else {
+            event.target.nextElementSibling.classList.remove("filled");
+        }
+    });
+});
+
+</script>
+{% endblock content %}

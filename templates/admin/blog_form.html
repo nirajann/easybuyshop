@@ -1,0 +1,28 @@
+{% extends 'admin/admindashboard.html' %}
+
+{% block content %}
+
+{% load static %}
+<link rel="stylesheet" href="{% static 'admincss/formstyle.css' %}">
+
+<form action="" enctype="multipart/form-data" method="POST">
+    {% csrf_token %}
+    <div class="change-container change-container" style="background-image: linear-gradient(to right top, #a4a4a4, #adabad, #b8b1b4, #c3b8b8, #cdbfba, #cec1ba, #cfc4ba, #cfc6bb, #cbc3b9, #c6c1b8, #c2beb6, #bebbb5);">
+      <label class="labe">Blog Name:</label><br>
+      <input class="dash-field" type="text" id="bname"  placeholder="Blog Name" name="blog_name"><br>
+      <label class="labe">Blog Description:</label><br>
+      <textarea class="dash-field" name="blog_details"
+        rows="6"
+        cols="60"
+        name="message"
+        class="form-control"
+        id="message"
+        placeholder="Description"
+        tabindex="4"
+      ></textarea><br>
+      <label class="labe">Blog Image:</label><br>
+      <input class="dash-field" type="file" id="bimage" name=" blog_image"><br>
+      <input class="dash-field" type="submit" value="submit" style="background-color:skyblue;">
+    </div>
+</form>
+{% endblock %}

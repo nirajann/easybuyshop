@@ -1,0 +1,93 @@
+{% extends 'base2.html' %}
+{% load static %}
+{% block css %}<link rel="stylesheet" type="text/css" href="{% static 'css/viewpage.css' %}">{% endblock %}
+{% block content %}
+{% load custom_filter %}
+{% load cart %}
+
+<h4 class="pt-5 d-flex justify-content-center text-light h1">PRODUCTS<h4>
+
+{% for message in messages  %}
+              <p class= "createdmesseges">{{message}}</p>
+            {% endfor %}
+<div class="products-container container containbox" >
+<div class="row"> 
+    {% for product in products %}
+    <div class="product col-lg-3 pb-5">
+        <div class="box-element product">
+        <div class = "product-img">
+        <img class="thumbnail" src="{{product.image.url}}">
+        </div>
+        <br>
+        <div id="full-stars">
+			<div class="rating-group">
+				<input disabled checked class="rating__input rating__input--none" name="rating3" id="rating3-none" value="0" type="radio">
+				<label aria-label="1 star" class="rating__label" for="rating3-1"><i class="rating__icon rating__icon--star fa fa-star"></i></label>
+				<input class="rating__input" name="rating3" id="rating3-1" value="1" type="radio">
+				<label aria-label="2 stars" class="rating__label" for="rating3-2"><i class="rating__icon rating__icon--star fa fa-star"></i></label>
+				<input class="rating__input" name="rating3" id="rating3-2" value="2" type="radio">
+				<label aria-label="3 stars" class="rating__label" for="rating3-3"><i class="rating__icon rating__icon--star fa fa-star"></i></label>
+				<input class="rating__input" name="rating3" id="rating3-3" value="3" type="radio">
+				<label aria-label="4 stars" class="rating__label" for="rating3-4"><i class="rating__icon rating__icon--star fa fa-star"></i></label>
+				<input class="rating__input" name="rating3" id="rating3-4" value="4" type="radio">
+				<label aria-label="5 stars" class="rating__label" for="rating3-5"><i class="rating__icon rating__icon--star fa fa-star"></i></label>
+				<input class="rating__input" name="rating3" id="rating3-5" value="5" type="radio">
+			</div>
+		</div> 
+        <hr>    
+            <h6 class = "d-flex justify-content-center pt-3" style="color:red;"><strong>{{product.name}}</strong></h6>
+            
+            <h4 class="d-flex justify-content-center " style="color:green; "><strong>Rs {{product.price}}</strong></h4>
+            	<div class="card-footer p-0 no-gutters">
+
+						{% if product|is_in_cart:request.session.cart %}
+						<div class="row no-gutters btn-outline-light">
+							<form action="/productpage#{{product.id}}" class="col-2 " method="POST">
+								{% csrf_token %}
+								<input hidden type="text" name='product' value='{{product.id}}'>
+								<input hidden type="text" name='remove' value='True'>
+								<input type="submit" value=" - " class="btn btn-block btn-light border-right">
+							</form>
+							<div class="text-center col btn btn-primary">{{product|cart_quantity:request.session.cart}} in Cart</div>
+							<form action="/productpage#{{product.id}}" class="col-2 " method="POST">
+								{% csrf_token %}
+								<input hidden type="text" name='product' value='{{product.id}}'>
+								<input type="submit" value=" + " class="btn btn-block btn-light border-left">
+							</form>
+						</div>
+						{% else %}
+						<form action="/productpage#{{product.id}}" method="POST" class="btn-block">
+							{% csrf_token %}
+							<input hidden type="text" name='product' value='{{product.id}}'>
+							<input type="submit" class="float-right btn btn-light  form-control"
+								value="Add To Cart">
+						</form>
+						{% endif %}
+
+					</div>
+            <hr>
+            </form> 
+              <a class="btn btn-outline-success" href="{% url "edit" product.id%}" >View</a>
+            
+        </div>
+    </div>
+    {% endfor %}
+   <script type="text/javascript">
+    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+    (function(){
+    var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+    s1.async=true;
+    s1.src='https://embed.tawk.to/62a9fcebb0d10b6f3e7785f8/1g5k07unt';
+    s1.charset='UTF-8';
+    s1.setAttribute('crossorigin','*');
+    s0.parentNode.insertBefore(s1,s0);
+    })();
+   </script>
+
+
+{% endblock content %}
+
+
+{% block section %}
+
+{% endblock section %}

@@ -1,0 +1,30 @@
+{% extends 'admin/admindashboard.html' %} 
+{% block content %} 
+{% load static %}
+
+<link rel="stylesheet" href="{% static 'admincss/formstyle.css' %}">
+
+<form action="/update_blog/{{single_blog.blog_id}}" enctype="multipart/form-data" method="POST">
+  {% csrf_token %}
+  <div class="change-container change-container">
+    <label class="labe">Blog Name:</label><br>
+    <input class="dash-field"  type="text" name="blog_name" value="{{single_blog.blog_name}}"><br>
+    <label class="labe">Blog Description:</label><br>
+    <input class="dash-field" name="blog_details"
+        rows="6"
+        cols="60"
+        name="message"
+        class="form-control"
+        id="message"
+        placeholder="Description"
+        tabindex="4"
+        value="{{single_blog.blog_details}}"
+      ></input><br><br>
+    <label class="labe">Blog Image:</label><br>
+    <input class="dash-field"  type="file" name=" blog_image" value={{single_blog.blog_image}}><br>
+    <input class="dash-field" type="submit"  value="Update" style="background-color:skyblue;">
+  
+  </div>
+  </form>
+
+  {% endblock %}

@@ -1,0 +1,108 @@
+{% extends 'base2.html' %}
+{% load static %}
+{% block css %}<link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">{% endblock %}
+{% block content %}
+{% load cart %}
+{% load custom_filter %}
+
+<h2 class="d-flex justify-content-center pt-5 text-light pb-5">Category<h2>
+    <div class="container-fluid ">
+        <div class="d-flex justify-content-center">
+
+            <div class="d-flex flex-row pb-5 pl-5 pr-5">
+
+                <a href="#" class="box-element product  pb-3 ">Section</a>
+
+                {% for category in categories %}
+
+                <a href="?category={{category.id}}"
+
+                    class="box-element product list-group-item-action ">{{category.slug}}</a>
+
+                {% endfor %}
+
+            </div>
+
+        </div>
+        <div class="row">
+            <div class="col-lg-2 mx-auto">
+                <div class="list-group">
+     
+                    <a href="#" class="box-element product list-group-item-action pb-3">All Products</a>
+     
+                    {% for category in categories %}
+                    <a href="?category={{category.id}}"
+                        class="box-element product list-group-item-action">{{category.name}}</a>
+                    {% endfor %}
+                </div>
+            </div>
+     
+            <!-- all products -->
+            <div id='products' class="col-lg-9 mx-auto">
+        <div class="container containbox" >
+    <div class="row pb-5"> 
+        {% for product in products %}
+        <div class="col-lg-3 pb-5">
+            <div class="box-element product">
+            <div class = "product-img">
+            <img class="thumbnail" src="{{product.image.url}}">
+            </div>
+            <br>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star"></span>
+            <span class="fa fa-star"></span>
+            <hr>    
+                <h6 class = "d-flex justify-content-center pt-3" style="color:red;"><strong>{{product.name}}</strong></h6>
+                
+                <h4 class="d-flex justify-content-center " style="color:green; "><strong>Rs {{product.price}}</strong></h4>
+                    <div class="card-footer p-0 no-gutters">
+                        {% if product|is_in_cart:request.session.cart %}
+                        <div class="row no-gutters btn-outline-light">
+                            <form action="/#{{product.id}}" class="col-2 " method="post">
+                                {% csrf_token %}
+                                <input hidden type="text" name='product' value='{{product.id}}'>
+                                <input hidden type="text" name='remove' value='True'>
+                                <input type="submit" value=" - " class="btn btn-block btn-light border-right">
+                            </form>
+                            <div class="text-center col btn btn-primary">{{product|cart_quantity:request.session.cart}} in Cart</div>
+                            <form action="/#{{product.id}}" class="col-2 " method="post">
+                                {% csrf_token %}
+                                <input hidden type="text" name='product' value='{{product.id}}'>
+                                <input type="submit" value=" + " class="btn btn-block btn-light border-left">
+                            </form>
+                        </div>
+                        {% else %}
+                        <form action="/#{{product.id}}" method="POST" class="btn-block">
+                            {% csrf_token %}
+                            <input hidden type="text" name='product' value='{{product.id}}'>
+                            <input type="submit" class="float-right btn btn-light  form-control"
+                                value="Add To Cart">
+                        </form>
+                        {% endif %}
+ 
+                    </div>
+            <hr>
+            </form> 
+              <!-- linking the product  -->
+              <a class="btn btn-outline-success" href="{% url "edit" product.id%}" >View</a>
+            <div class="container">
+            <span id="rateMe1"></span>
+            </div>
+           
+ 
+        </div>
+    </div>
+    {% endfor %}
+</div>
+</div>
+    </div>
+</div>
+
+{% endblock content %}
+
+
+{% block section %}
+
+{% endblock section %}

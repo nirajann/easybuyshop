@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block css %}<link rel="stylesheet" type="text/css" href="{% static 'css/profile.css' %}">{% endblock %}
+{% block content %}
+
+<div class"mainprofile pt-5">
+<div class="container pt-5">
+
+<table class="pt-5">
+<tr>
+<td>
+<section>
+
+<label for="fileToUpload">
+<i class="fa fa-camera"></i>
+<input type="file" id="fileToUpload" style="visibility:hidden;" accept=".png,.jpg,jpeg,.PNG,.JPEG" name="fileToUpload" onchange="document.getElementById('blah').src = window.URL.createObjectURL(this.files[0])">
+</label>
+<img src="https://i.ibb.co/yNGW4gg/avatar.png" id="blah" alt="Avatar">
+</section>
+
+<h1>{{request.session.}}</h1>
+
+<h3>Web Designer & Developer</h3>
+</td>
+<td>
+<ul class="ul2">
+<li class="li2"><b class="text-primary">Full name : </b> <input type="text" name="fname" id="fname" maxlength="100" value="{{customer.first_name}}" required /> <i class="fa fa-edit" id="edit1" onclick="document.getElementById('fname').style.pointerEvents='auto';document.getElementById('fname').focus();this.style.display='none'; document.getElementById('check1').style.display='inline-block';"></i> <i class="fa fa-check" style="display:none;" id="check1" onclick="document.getElementById('edit1').style.display='inline-block';this.style.display='none';document.getElementById('fname').style.pointerEvents='none';"></i></li>
+<li class="li2"><b class="text-primary">Email : </b> <input type="email" name="email" id="email" maxlength="150" value="{{request.user.email}}" required /></li>
+<li class="li2"><b class="text-primary">Contact number : </b> <input type="tel" name="mobile" id="mobile" maxlength="10" value="{{request.user.phone}}" required /> <i class="fa fa-edit" id="edit2" onclick="document.getElementById('mobile').style.pointerEvents='auto';document.getElementById('mobile').focus();this.style.display='none'; document.getElementById('check2').style.display='inline-block';"></i> <i class="fa fa-check" style="display:none;" id="check2" onclick="document.getElementById('edit2').style.display='inline-block';document.getElementById('mobile').style.pointerEvents='none';this.style.display='none';"></i></li>
+<li  class="li2"><b class="text-primary">Address : </b> <input type="text" name="address" id="address" maxlength="250" value="Street, Pincode, Province/State, Country" required /> <i class="fa fa-edit" id="edit3" onclick="document.getElementById('address').style.pointerEvents='auto';document.getElementById('address').focus();this.style.display='none'; document.getElementById('check3').style.display='inline-block';"></i> <i class="fa fa-check" style="display:none;" id="check3" onclick="document.getElementById('edit3').style.display='inline-block';document.getElementById('address').style.pointerEvents='none';this.style.display='none';"></i></li>
+</ul>
+</td>
+</tr>
+<tr>
+
+</section>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+
+
+{% endblock content %}
