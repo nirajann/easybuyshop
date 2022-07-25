@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 
 from pathlib import Path
 import os
+import django_heroku
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -27,7 +28,8 @@ SECRET_KEY = 'django-insecure-hk&boimc(-n1z-nb!0ji+h=wsvu%=$kc6u=^@=dap#-o-fg&v-
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+# ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['easybuystore.herokuapp.com']
 
 
 # Application definition
@@ -50,6 +52,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 ROOT_URLCONF = 'Easybuy.urls'
@@ -158,3 +161,5 @@ EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'sthronesh11@gmail.com'
 
 EMAIL_HOST_PASSWORD = 'yedtwrhyzoeowrpu'
+
+django_heroku.settings(locals())

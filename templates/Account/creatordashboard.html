@@ -86,17 +86,23 @@
                   onclick="document.getElementById('fileInput').click();"
                 ></i>
               </div>
-              <div class="custom-file mt-3 mb-3">
-                <input id="fileInput" type="file" name="image" style="display:none;" />
-                <input
-                  type="button"
-                  class="btn btn-primary btn-block mx-auto"
-                  
-                  value="Upload a image"
-                  onclick="document.getElementById('fileInput').click();"
-                />
-                
-              </div>
+
+                 <div class="col-ting">
+                        <div class="control-group file-upload" id="file-upload1">
+                          <div class="image-box text-center">
+                            <p>Upload Image</p>
+                            <img src="" alt="">
+                          </div>
+                          <div class="controls" style="display: none;">
+                            <input  id="fileInput" type="file" name="image" />
+                             <input type="button" class="btn btn-primary btn-block mx-auto" value="Upload a image" onclick="document.getElementById('fileInput').click();"/>
+                            
+                          </div>
+                        </div>
+                        </div>
+
+
+            
             </div>
             <div class="col-12">
               <button type="submit" value="submit" class="btn">Add Product  </button>
@@ -108,6 +114,33 @@
     </div>
   </div>
 <script>
+$(".image-box").click(function(event) {
+	var previewImg = $(this).children("img");
+
+	$(this)
+		.siblings()
+		.children("input")
+		.trigger("click");
+
+	$(this)
+		.siblings()
+		.children("input")
+		.change(function() {
+			var reader = new FileReader();
+
+			reader.onload = function(e) {
+				var urll = e.target.result;
+				$(previewImg).attr("src", urll);
+				previewImg.parent().css("background", "transparent");
+				previewImg.show();
+				previewImg.siblings("p").hide();
+			};
+			reader.readAsDataURL(this.files[0]);
+		});
+});
+
+
+
 document.querySelectorAll(".text-input").forEach((element) => {
     element.addEventListener("blur", (event) => {
         if (event.target.value != "") {

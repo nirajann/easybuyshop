@@ -112,6 +112,25 @@
   </div>
 </div>
 </header>
+<div class="cart-box">
+
+                        <a class="navbar-brand" href="/cart"><img src="{% static 'images/shopping-cart.png' %}" width="30px" >
+                            <span class="badge badge-pill bg-danger">{{request.session.cart.keys|length}}</span>
+                            <span class="sr-only">(current)</span></a>
+      
+</div>
+<div>
+
+  <form class="form-inline " action="/searchresult" method="GET">
+                <div class="search-box">
+
+                <form class="form-inline " action="/searchresult" method="GET">
+                <input class="search-input" width="40px;" name="query" id="query" class="form-control " type="search" placeholder="Search" aria-label="Search" required>
+                <i class="fas fa-search "></i>
+                </form>
+        <div class="clear"></div>
+    </form>
+    </div>
     {% block content %}
     
    

@@ -1,7 +1,40 @@
 {% extends 'base2.html' %}
 {% load static %}
-{% block css %}<link rel="stylesheet" type="text/css" href="{% static 'css/contact.css' %}">{% endblock %}
+
 {% block content %}
+<div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        {% if message_name %}
+        <section>
+            <p class="lead">
+          <div class="jumbotron" style="margin-top: 90px">
+            <h2 class="display " style="font-size: 40px; color: #456787;">Thank You! {{ message_name}}</h2>
+              <strong>Please check your email</strong> for further instructions on how to complete your account setup.
+            </p>
+            <hr />
+            <p class="d-inline "style="font-size: 20px; color: #456787; ">Having trouble? </p>
+              <a class="btn btn-info btn-border btn-large"href="{% url 'contact' %}" style="color: black">Contact us</a>
+            </p>
+            <p class="lead">
+              <a class="btn btn-success btn-border btn-large" href="{% url 'home' %}" role="button"
+                >Continue to homepage</a
+              >
+            </p>
+          </div>
+          {% comment %}
+          <h2 style="text-align: center">Thanks {{ message_name}}!</h2>
+          <p style="text-align: center">
+            we received your email and will respond shortly...
+          </p>
+          {% endcomment %}
+        </section>
+        {% else %}
+        <!-- <h2 class="form-title">Contact Us</h2> -->
+      </div>
+    </div>
+
+
     <div class="contain">
 
         <div class="wrapper">
@@ -9,34 +42,29 @@
           <div class="form">
             
             <h2>Contact Us</h2>
-            <div class= "createdmesseges">
-            {% for message in messages  %}
-            <p>{{message}}</p>
-            {% endfor %}
-        </div>
             <h2 class="form-headline">Send us a message</h2>
             <iframe height="200px" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3081.2656958479542!2d85.32852924149567!3d27.706318732252672!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39eb19c4f53018d1%3A0x2c9602e69b406e27!2sSoftwarica%20College%20-%20Block%20E!5e1!3m2!1sen!2snp!4v1652973419190!5m2!1sen!2snp"
              width="700" height="500" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-            <form action="" method="POST" id="submit-form">
+            <form id="submit-form" method="POST"   action="">
             {% csrf_token %}
               <p>
-                <input id="name" class="form-input" type="text" name="username" placeholder="Your Name*">
+                <input id="name" class="form-input" type="text" name="message_name" placeholder="Your Name*">
                 <small class="name-error"></small>
               </p>
               <p>
-                <input id="email" class="form-input" type="email" name="email" placeholder="Your Email*">
+                <input id="email" class="form-input" type="email" name="message_email" placeholder="Your Email*">
                 <small class="name-error"></small>
               </p>
               <p class="full-width">
-                <input id="subject" class="form-input" type="text" placeholder="Subject" name="subject" required>
+                <input id="subject" class="form-input" type="text" name="message_subject" placeholder="Subject*" required>
                 <small></small>
               </p>
               <p class="full-width">
-                <textarea  minlength="20" id="message" name="messgae" type="text" placeholder="message" cols="30" rows="7" placeholder="Your Message*" style="font-size: 15px;"required></textarea>
+                <textarea  minlength="20" id="message" cols="30" rows="7" name="message" placeholder="Your Message*" style="font-size: 15px;"required></textarea>
                 <small></small>
               </p>
               <p class="full-width">
-                <input type="submit" class="submit-btn btn btn-success" style="width:80px; height: 30px; font-size:medium;" value="register" onclick="checkValidations()">
+                <input type="submit" class="submit-btn btn btn-success" style="width:80px; height: 30px; font-size:medium;" value="Submit" onclick="checkValidations()">
                 <button class="reset-btn btn btn-danger" style="width:80px; height: 30px; font-size:medium;"  onclick="reset()">Reset</button>
               </p>
             </form>
@@ -64,75 +92,12 @@
             </ul>
           </div>
         </div>
+        {% endif %}
       </div>
+
       
 {% endblock content %}
 
 
-{% block section %}
-      
-{% endblock section %}
 
-<div class="wrapper">
-      
-  <div class="form">
-    
-    <h2>Contact Us</h2>
-    <h2 class="form-headline">Send us a message</h2>
-    <iframe height="200px" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3081.2656958479542!2d85.32852924149567!3d27.706318732252672!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39eb19c4f53018d1%3A0x2c9602e69b406e27!2sSoftwarica%20College%20-%20Block%20E!5e1!3m2!1sen!2snp!4v1652973419190!5m2!1sen!2snp"
-     width="700" height="500" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-    <form id="submit-form" action="">
-      <p>
-        <input id="name" class="form-input" type="text" placeholder="Your Name*">
-        <small class="name-error"></small>
-      </p>
-      <p>
-        <input id="email" class="form-input" type="email" placeholder="Your Email*">
-        <small class="name-error"></small>
-      </p>
-      <p class="full-width">
-        <input id="subject" class="form-input" type="text" placeholder="Subject*" required>
-        <small></small>
-      </p>
-      <p class="full-width">
-        <textarea  minlength="20" id="message" cols="30" rows="7" placeholder="Your Message*" style="font-size: 15px;"required></textarea>
-        <small></small>
-      </p>
-      <p class="full-width">
-        <input type="submit" class="submit-btn btn btn-success" style="width:80px; height: 30px; font-size:medium;" value="Submit" onclick="checkValidations()">
-        <button class="reset-btn btn btn-danger" style="width:80px; height: 30px; font-size:medium;"  onclick="reset()">Reset</button>
-      </p>
-    </form>
-  </div>
-
-  <div class="contacts contact-wrapper">
-
-    <ul>
-      <li>Have a question about our product, company, or just want to chat?
-         <span class="highlight-text-grey">
-          Email Us!</span> </li>
-      <span class="hightlight-contact-info">
-        <li class="email-info"><i class="fa fa-envelope" aria-hidden="true"></i> CUSTOMER SERVICE</li>
-        <li><i class="fa fa-phone" aria-hidden="true"></i> <span class="highlight-text">+977-9841514253</span></li>
-        <li><i class="fa fa-phone" aria-hidden="true"></i> <span>Monday to Friday</span></li>
-
-         <li class="email-info"><i class="fa fa-envelope" aria-hidden="true"></i> PRODUCTS & ORDERS</li>
-        <li><i class="fa fa-phone" aria-hidden="true"></i> <span class="highlight-text">+977-9846582513</span></li>
-        <li><i class="fa fa-phone" aria-hidden="true"></i> <span>Monday to Friday</span></li>
-
-        <li class="email-info"><i class="fa fa-envelope" aria-hidden="true"></i> STORE LOCATION</li>
-        <li><i class="fa fa-phone" aria-hidden="true"></i> <span>Dillibazar, Kathmandu</span></li>
-
-      </span>
-    </ul>
-  </div>
-</div>
-</div>
-
-{% endblock content %}
-
-
-{% block section %}
-
-{% endblock section %}
-
+ 

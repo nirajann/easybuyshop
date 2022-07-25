@@ -258,22 +258,36 @@ def edit(request, id):
     return render(request,'productpage/edit.html',context)
 
 
-
-
 def contact(request):
 
-    if request.method =='POST':
+    if request.method == "POST":
+            
 
-        form = contact(request.POST  or None)
-        if form.is_valid():
-            form.save()
-            user = form.cleaned_data.get('username')
-            messages.success(request,"your enquiry has been submitted " + user)
-            print(form)
-            return render(request, 'contact/contactus.html')
+            message_name = request.POST['message_name']
+
+            message_email = request.POST['message_email']
+
+            message_subject = request.POST['message_subject']
+
+            message =request.POST['message']
+
+            send_mail(
+
+                message_subject, #subject
+
+                message, #message
+
+                message_email, #from email
+
+                ['sthronesh11@gmail.com' ], #To email# fail_silently= True,
+                ) 
+            return render(request, 'contact/contact.html', {'message_name': message_name})
+    
+
+    return render(request, 'contact/contact.html') 
 
 
-    return render(request, 'contact/contact.html')     
+
 
 
 
