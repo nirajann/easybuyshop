@@ -1,0 +1,231 @@
+.texth1 {
+    color: white;
+    padding-top: 20px;
+    padding-left: 600px;
+    padding-bottom: 70px;
+}
+
+.drop-container {
+    padding: 1.5rem;
+    width: 450px;
+    display: inline-block;
+    border-radius: 20px;
+    box-shadow: 0 0 40px 15px rgba(0, 0, 0, 0.2);
+}
+
+.drop {
+    border-radius: 10px;
+    border: 3px dashed #aaaaaa;
+    display: grid;
+    width: 100%;
+    place-content: center;
+    padding: -24rem;
+    box-sizing: border-box;
+    display: grid;
+    place-items: center;
+}
+
+.active {
+    border: 3px solid #4b4b4b;
+    background: #edccff;
+}
+
+.drop .icon {
+    font-size: 60px;
+    color: #a916f9;
+}
+
+.drop .text {
+    text-align: center;
+    font-weight: 500;
+    color: #443f46;
+    margin-top: 1rem;
+}
+
+.drop .label1 {
+    background: #a916f9;
+    padding: 0.7rem 1.8rem;
+    border-radius: 5px;
+    color: #fff;
+    cursor: pointer;
+}
+
+.file-input {
+    display: none;
+}
+
+.line {
+    width: 80px;
+    height: 1px;
+    background: #949494;
+}
+
+.or-con {
+    display: flex;
+    align-items: center;
+    margin: 0.5rem;
+}
+
+.or {
+    margin: 0 1rem;
+    font-weight: 500;
+    color: #443f46;
+}
+
+form {
+    display: block;
+}
+
+.effect-10 {
+    border: 0;
+    padding: 7px 15px;
+    border: 1px solid #ccc;
+    position: relative;
+    background: transparent;
+}
+
+.effect-10~.focus-bg {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: 0.5s;
+    z-index: -1;
+}
+
+.effect-10:focus~.focus-bg {
+    transition: 0.5s;
+    opacity: 1;
+}
+
+.custome-select {
+    padding-top: 5px;
+    position: relative;
+    width: 200px;
+    height: 40px;
+    z-index: 3;
+}
+
+select {
+    background: transparent;
+    border: none;
+    width: 80%;
+    height: 100%;
+    font-size: 22px;
+    z-index: 2;
+    padding: 0 10px;
+    position: relative;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
+.frame {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 400px;
+    height: 400px;
+    margin-top: -200px;
+    margin-left: -200px;
+    border-radius: 2px;
+    box-shadow: 4px 8px 16px 0 rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    background: #67B26F;
+    background: -webkit-linear-gradient(to right, #4ca2cd, #67B26F);
+    background: linear-gradient(to right, #4ca2cd, #67B26F);
+    color: #333;
+    font-family: 'Poppins', 'Open Sans', Helvetica, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 250px;
+    height: 250px;
+    background-color: #fff;
+    box-shadow: 4px 8px 16px 0 rgba(0, 0, 0, 0.7);
+}
+
+.title {
+    text-align: center;
+    font-size: 18px;
+    line-height: 0.5;
+    border-bottom: 1px solid #000;
+}
+
+.file {
+    position: absolute;
+    display: table;
+    table-layout: fixed;
+    width: 100px;
+    height: 80px;
+    top: 90px;
+    left: 75px;
+    border: 1px dotted #000;
+    border-radius: 5px;
+}
+
+.file {
+    cursor: pointer;
+}
+
+.btn {
+    position: absolute;
+    bottom: 5%;
+    top: 100px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 4px 8px 16px 0 rgba(0, 0, 0, 0.5);
+    border-radius: 20px;
+    width: 100px;
+    height: 35px;
+    text-align: center;
+    background-color: #edf8ee;
+    color: #fff;
+    font-size: 16px;
+}
+
+.btn:hover {
+    cursor: pointer;
+    width: 120px;
+    height: 40px;
+    background: #e9f0ea;
+    background: -webkit-linear-gradient(to right, #4ca2cd);
+    background: linear-gradient(to right, #4ca2cd);
+}
+
+.col-ting {
+    width: 25em;
+    margin: 0 auto;
+    margin-top: 3em;
+    margin-bottom: 3em;
+}
+
+.file-upload .image-box {
+    margin: 0 auto;
+    margin-top: 1em;
+    height: 20em;
+    width: 29em;
+    background: transparent;
+    cursor: pointer;
+    overflow: hidden;
+    border: 3px solid #fff;
+}
+
+.file-upload .image-box img {
+    height: 100%;
+    display: none;
+}
+
+.file-upload p {
+    position: relative;
+    top: 45%;
+    color: #fff;
+}

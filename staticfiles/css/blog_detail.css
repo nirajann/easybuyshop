@@ -1,0 +1,28 @@
+
+.comment-headline:after {
+    content: "";
+    display: block;
+    width: 159%;
+    padding-top: 10px;
+    font-size: 50px;
+    border-bottom: 1px solid #000;
+}
+
+.cmtform-input:focus,
+textarea:focus {
+    outline: 1.5px solid #ec1c24;
+}
+
+.cmtform-input,
+textarea {
+    width: 100%;
+    border: 2px solid #000;
+    padding: 1em;
+}
+
+.submit-commentbtn,
+.cmtform-input,
+textarea {
+    padding: 1em;
+}
+

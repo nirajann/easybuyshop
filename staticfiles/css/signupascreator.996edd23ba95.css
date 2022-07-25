@@ -1,0 +1,106 @@
+.h11 {
+    font-family: Baskerville, Times, 'Times New Roman', serif;
+    font-size: 75px;
+    color: #f8fbfc;
+    font-variant: small-caps;
+    text-align: center;
+    font-weight: bold;
+    padding: 5px 0px 15px 0px;
+    /* Tweak this to your liking */
+}
+
+.introduction {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-size: 15px;
+    font-weight: bold;
+    margin: 10px 0px 10px 20px;
+    top: 250px;
+    /* Tweak this to your liking (also add padding) */
+    letter-spacing: 3px;
+}
+
+.show {
+    display: none;
+}
+
+.title,
+.form {
+    margin: 0 auto;
+    border-radius: 2px;
+}
+
+.title {
+    margin-bottom: 0.5em;
+    display: block;
+    background: radial-gradient(circle, #247bfe, #0094ff, #00aaff, #00beff, #3acff9);
+    font-family: 'Nunito', sans-serif;
+    font-size: 22px;
+    padding: 1em;
+    text-transform: uppercase;
+    box-sizing: border-box;
+    text-align: center;
+    cursor: pointer;
+}
+
+.flag {
+    position: absolute;
+    top: 7px;
+    border-radius: 2px;
+    border: 35px solid;
+    border-top-color: radial-gradient(circle, #247bfe, #0094ff, #00aaff, #00beff, #3acff9);
+    border-bottom-color: radial-gradient(circle, #247bfe, #0094ff, #00aaff, #00beff, #3acff9);
+}
+
+.show~.title {
+    z-index: 2;
+    width: 300px;
+    position: relative;
+    top: 10px;
+    left: 0;
+    transition: width 200ms ease-out, top 200ms ease-out;
+}
+
+.show~.title .flag {
+    opacity: 0;
+}
+
+.show~.title .left {
+    left: 0;
+    border-right-color: radial-gradient(circle, #247bfe, #0094ff, #00aaff, #00beff, #3acff9)e;
+    border-left-color: transparent;
+}
+
+.show~.title .right {
+    right: 0;
+    border-right-color: transparent;
+    border-left-color: radial-gradient(circle, #247bfe, #0094ff, #00aaff, #00beff, #3acff9);
+}
+
+.show~.form {
+    opacity: 0;
+    transition: opacity 200ms linear;
+}
+
+.show:checked~.title {
+    position: relative;
+    top: 50px;
+    width: 500px;
+}
+
+.show:checked~.title .left {
+    opacity: 0.7;
+    left: -55px;
+    color: #77dde4;
+    transition: opacity 50ms linear 200ms, left 50ms linear 200ms;
+}
+
+.show:checked~.title .right {
+    opacity: 0.7;
+    right: -55px;
+    color: #77dde4;
+    transition: opacity 50ms #247bfe 200ms, right 50ms #247bfe 200ms;
+}
+
+.show:checked~.form {
+    opacity: 1;
+}

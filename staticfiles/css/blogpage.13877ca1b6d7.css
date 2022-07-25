@@ -1,0 +1,123 @@
+    /* color:  red#ec1c24, black#212d31, grey#343a40, white#eee  */
+    
+    body {
+        background: #eee;
+    }
+    
+    .blogtext {
+        justify-items: center;
+    }
+    
+    .content {
+        position: relative;
+        padding-top: 50px;
+        padding-left: 500px;
+    }
+    
+    .content h2 {
+        color: rgb(23, 22, 22);
+        font-size: 8em;
+        position: absolute;
+        transform: translate(-50%, -50%);
+    }
+    
+    .content h2:nth-child(1) {
+        color: transparent;
+        -webkit-text-stroke: 2px #111313;
+    }
+    
+    .content h2:nth-child(2) {
+        color: #e3eef3;
+        animation: animate 4s ease-in-out infinite;
+    }
+    
+    @keyframes animate {
+        0%,
+        100% {
+            clip-path: polygon( 0% 45%, 16% 44%, 33% 50%, 54% 60%, 70% 61%, 84% 59%, 100% 52%, 100% 100%, 0% 100%);
+        }
+        50% {
+            clip-path: polygon( 0% 60%, 15% 65%, 34% 66%, 51% 62%, 67% 50%, 84% 45%, 100% 46%, 100% 100%, 0% 100%);
+        }
+    }
+    
+    .card {
+        background: #fff;
+        border-radius: 4px;
+        max-width: 1250px;
+        display: flex;
+        flex-direction: row;
+        border-radius: 25px;
+        position: relative;
+    }
+    
+    .card h2 {
+        margin: 0;
+        padding: 0 1rem;
+    }
+    
+    .card .title {
+        padding: 1rem;
+        text-align: right;
+        color: green;
+        font-weight: bold;
+        font-size: 25px;
+    }
+    
+    .card .desc {
+        padding: 0.5rem 1rem;
+        font-size: 12px;
+    }
+    
+    .card .actions {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        align-items: center;
+        padding: 0.5rem 1rem;
+    }
+    
+    .img-avatar {
+        width: 80px;
+        height: 80px;
+        position: absolute;
+        border-radius: 50%;
+        border: 6px solid white;
+        background-image: linear-gradient(-60deg, #16a085 0%, #f4d03f 100%);
+        top: 15px;
+        left: 85px;
+    }
+    
+    .card-text {
+        display: grid;
+        grid-template-columns: 2fr 2fr;
+    }
+    
+    .title-total {
+        padding: 2.5em 1.5em 1.5em 1.5em;
+    }
+    
+    path {
+        fill: white;
+    }
+    
+    .img-portada {
+        width: 100%;
+    }
+    
+    .portada {
+        width: 100%;
+        height: 100%;
+        border-top-left-radius: 20px;
+        border-bottom-left-radius: 20px;
+        background-position: bottom center;
+        background-size: cover;
+    }
+    
+    button {
+        border: none;
+        background: none;
+        font-size: 24px;
+        color: #8bc34a;
+        cursor: pointer;
+        transition: .5s;
+    }
