@@ -1,2 +1,2 @@
 release: python manage.py migrate
-web: gunicorn easybuy.wsgi --log-file=-
+web: gunicorn Easybuy.wsgi --log-file=-
