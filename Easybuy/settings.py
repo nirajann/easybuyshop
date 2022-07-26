@@ -87,15 +87,23 @@ CHANNEL_LAYER = {
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#         'NAME': 'd65fktbm4cbnm4',
+#         'USER': 'ydtequzmhlbwjm',
+#         'PASSWORD': 'e06379fd7cbed0217734d883a9e5e1972328806102d0dd5e3f82928f5a4b2351',
+#         'HOST': 'ec2-44-206-197-71.compute-1.amazonaws.com',
+#         'PORT':'5432',
+# }
+# }
+
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'd65fktbm4cbnm4',
-        'USER': 'ydtequzmhlbwjm',
-        'PASSWORD': 'e06379fd7cbed0217734d883a9e5e1972328806102d0dd5e3f82928f5a4b2351',
-        'HOST': 'ec2-44-206-197-71.compute-1.amazonaws.com',
-        'PORT':'5432',
-}
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    }
 }
 
 # Password validation

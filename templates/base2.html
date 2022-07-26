@@ -43,8 +43,11 @@
       <!-- div class="nav at-center" -->
       <!-- div class="nav at-right"  -->
       {% if request.session.customer %}
-                    <li><a href="/home"><i class="fa fa-home" aria-hidden="true"></i></a></li>
+                    <li><a href="/home"><i class="fa fa-home" style="font-size:20px" aria-hidden="true"></i></a></li>
                     <li><a  href="/store">Shop</a></li>
+                        <li><a class="navbar-brand" href="/cart"><img src="{% static 'images/shopping-cart.png' %}" width="30px" >
+                                <span class="badge badge-pill bg-danger">{{request.session.cart.keys|length}}</span>
+                                <span class="sr-only">(current)</span></a></li>
                     <li><a href="{% url 'blog' %}">Blog</a></li>
                     <div class="form-inline my-2 my-lg-0">          
                     <li><a href="/contact">Contact us</a></li>
@@ -69,7 +72,7 @@
                     <div class="form-inline my-2 my-lg-0">
                   
 
-                    <li><a href="/contact">Contact us</a></li>
+                    
                     <li class="nav-item dropdown">
                       <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                       Creator
@@ -111,6 +114,15 @@
     </div>
   </div>
 </div>
+<form class="form-inline " action="/searchresult" method="GET">
+                <div class="search-box">
+
+                <form class="form-inline " action="/searchresult" method="GET">
+                <input class="search-input" width="40px;" name="query" id="query" class="form-control " type="search"
+                 placeholder="Search" aria-label="Search" required>
+                <i class="fas fa-search "></i>
+                </form>
+        <div class="clear"></div>
 </header>
     {% block content %}
     
