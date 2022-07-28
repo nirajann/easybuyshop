@@ -57,10 +57,11 @@
     }
     
     .card .title {
-        padding: 1rem;
-        text-align: right;
+        text-align: center;
         color: green;
+        padding: 15px;
         font-weight: bold;
+        padding-top: 100px;
         font-size: 25px;
     }
     
@@ -94,6 +95,7 @@
     
     .title-total {
         padding: 2.5em 1.5em 1.5em 1.5em;
+        align-items: center;
     }
     
     path {

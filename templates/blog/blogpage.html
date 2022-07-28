@@ -17,14 +17,14 @@
     <div class="">
      <img src="{{blog.blog_image.url}}" alt="" width="500px;">
     </div>
-    <div class="title-total">   
+    <div class="title-total pt-5">   
       <div class="title">{{blog.blog_name}}</div>
       <h2>Morgan Sweeney</h2>
   
-  <div class="desc">{{blog.blog_details}}</div>
+  <div class="desc pt-5 pb-5">{{blog.blog_details}}</div>
   <div class="actions">
-    <button><i class="far fa-heart"></i></button>
-    <a href="{% url 'blog_detail' blog.blog_id %}" class="btn btn-success"> Read More</a>
+    <button><i class="far fa-heart" style="font-size:20px; color:red;"></i></button>
+    <a href="{% url 'blog_detail' blog.blog_id %}" class="btn btn-success p-3"> Read More</a>
   </div></div>
  
   </div>

@@ -31,11 +31,10 @@ def home(request):
 
     return render(request,'home/home.html',)
 
-@login_required(login_url="login")
-def profile(request):
-    email = request.POST.get('email')
-    customer = Customer.get_customer_by_email(email)
 
+def profile(request):
+    customer = Customer.objects.all()
+  
 
     return render(request,'Account/profile.html',{'customer': customer})
 

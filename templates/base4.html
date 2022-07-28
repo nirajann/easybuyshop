@@ -5,7 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" type="text/css" href="{% static 'css/base3.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/base.css' %}">
     	<link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}"> 
     <link rel="stylesheet" type="text/css" href="{% static 'css/contact.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
@@ -27,29 +27,25 @@
 </head>
 
 <body style="background-color:#2cbabd;">
-<div class="pb-5"></div>
-<div class="navigationbar">
-<div id="logo"><img src="/static/images/logo.png" height="20px"/></div>
+<header>
+<div class="navbar">
 
-  <label for="drop" class="toggle"><img src="/static/images/logo.png" height="20px"/></label>
-  <input type="checkbox" id="drop" />
-  <ul class="menu d-flex justify-content-center">
-   {% if request.session.customer %}
-                    <li><a href="/home"><i class="fa fa-home" style="font-size:20px" aria-hidden="true"></i></a></li>
-                    
-                    <div class="nav-item dropdown">
-                      <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                      Shop
-                      </a>
-                      <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                
-                      <li class="dropdown-item" href="/store" ><i class='fas fa-store' style="font-size:15px"> Store</i></li>
-                      <li class="dropdown-item" href="/categorie"><i class="fa fa-list-alt" style="font-size:15px"> Category</i></li>
-                        
-                      </div>
-                    
-                    </div>  
-                    <li><a class="navbar-brand" href="/cart"><img src="{% static 'images/shopping-cart.png' %}" width="30px" >
+    <label for="togglericon" class="toggler" checked></label>
+    <input type="checkbox" id="togglericon" class="toggler" />
+
+    <div class="brand">
+      <img src="/static/images/logo.png" height="20px"/>
+      
+    </div>
+
+    <div class="nav">
+      <!-- reposition the menu with: -->
+      <!-- div class="nav at-center" -->
+      <!-- div class="nav at-right"  -->
+      {% if request.session.customer %}
+                    <li ><a href="/home"><i class="fa fa-home" style="font-size:20px" aria-hidden="true"></i></a></li>
+                    <li><a  href="/store">Shop</a></li>
+                        <li><a class="navbar-brand" href="/cart"><img src="{% static 'images/shopping-cart.png' %}" width="30px" >
                                 <span class="badge badge-pill bg-danger">{{request.session.cart.keys|length}}</span>
                                 <span class="sr-only">(current)</span></a></li>
                     <li><a href="{% url 'blog' %}">Blog</a></li>
@@ -59,9 +55,7 @@
                   <li><a href="/home"><i class="fa fa-home " style="font-size:20px" aria-hidden="true"></i></a></li>
                   
                     <li><a href="/contact">Contact us</a></li>
-                    <li>
-                  
-                    <div class="nav-item dropdown">
+                    <li class="nav-item dropdown">
                       <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                       Shop
                       </a>
@@ -72,12 +66,12 @@
                         
                       </div>
                     
-                    </div>  
-                  
+                    </li>  
                 
                     <li><a href="{% url 'blog' %}">Blog</a></li>
- 
+                    <div class="form-inline my-2 my-lg-0">
                   
+
                     
                     <li class="nav-item dropdown">
                       <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -89,19 +83,15 @@
                       <a class="dropdown-item" href="/orders">order</a>
                       <a class="dropdown-item" href="/logout">Log Out</a>
                         {% else %}
-                        <a class="navbar-brand" href="/logincreator"><i class='fas fa-sign-in-alt rounded-circle pr-2' style='font-size:20px'></i> login</a>
-
-                        <a class="navbar-brand" href="/creator"><i class='fas fa-sign-in-alt rounded-circle pr-2' style='font-size:20px'></i>signup</a>
+                        <a class="navbar-brand" href="/logincreator"><i class='fas fa-sign-in-alt rounded-circle' style='font-size:15px'></i>login</a>
+                        <a class="navbar-brand" href="/creator"><i class='fas fa-sign-in-alt rounded-circle' style='font-size:15px'></i>signup</a>
                     
                       </div>
                       {% endif %}
                     </li>   
                   
                   {% endif %}
-           
-
-
-          <li class="nav-item dropdown">
+            <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <i class='far fa-user rounded-circle' style='font-size:20px'> </i>
            
@@ -109,24 +99,32 @@
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
             {% if request.session.customer %}
-              <a class="dropdown-item" href="/profile">Profile</a>
+              <a class="dropdown-item" href="{% url 'profile' %}">Profile</a>
               <a class="dropdown-item" href="/orders">order</a>
               <a class="dropdown-item" href="/logout">Log Out</a>
               {% else %}
                         
-               <a class="navbar-brand" href="/login"> <i class='fas fa-sign-in-alt rounded-circle pr-2' style='font-size:20px'></i>login</a>
-              <a class="navbar-brand" href="/adminlogin"> <i class='fas fa-sign-in-alt rounded-circle pr-2' style='font-size:20px'></i></i>adminlogin </a> 
+              <a class="navbar-brand" href="/login"> <i class='fas fa-sign-in-alt rounded-circle' style='font-size:15px'></i>login</a>
+              <a class="navbar-brand" href="/adminlogin"> <i class='fas fa-sign-in-alt rounded-circle' style='font-size:15px'></i></i>adminlogin </a>
               
                           
             {% endif %}
-            
-
-  </ul>
+      
+     
+    </div>
+  </div>
 </div>
+<form class="form-inline " action="/searchresult" method="GET">
+                <div class="search-box">
 
-
-
-   {% block content %}
+                <form class="form-inline " action="/searchresult" method="GET">
+                <input class="search-input" width="40px;" name="query" id="query" class="form-control " type="search"
+                 placeholder="Search" aria-label="Search" required>
+                <i class="fas fa-search "></i>
+                </form>
+        <div class="clear"></div>
+</header>
+    {% block content %}
     
    
     {% endblock %} 

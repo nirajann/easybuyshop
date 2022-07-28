@@ -1,0 +1,196 @@
+    .navigationbar {
+        margin-left: 10%;
+        top: 30px;
+        padding: 0;
+        background-color: #eaf0ef;
+        width: 80%;
+        border-radius: 10px;
+        display: inline-block;
+    }
+    
+    #logo {
+        position: absolute;
+        display: inline-flex;
+        padding: 24px 39px;
+        font-size: 20px;
+        line-height: 60px;
+        justify-content: center;
+        align-content: center;
+    }
+    
+    .navigationbar:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+    
+    .navigationbar ul {
+        padding: 0;
+        list-style: none;
+        border-radius: 10px;
+        position: relative;
+    }
+    
+    .navigationbar ul li {
+        margin: 0px;
+        flex-wrap: nowrap;
+        flex-direction: column;
+        justify-content: space-around;
+        display: flex;
+        background-color: #eaf0ef;
+        color: #2cbabd;
+    }
+    
+    .navigationbar a {
+        display: flex;
+        color: #2cbabd;
+        font-size: 20px;
+        text-decoration: none;
+        padding: 21px;
+        border-radius: 10px;
+    }
+    
+    .navigationbar ul li ul li:hover {
+        background: #2cbabd;
+        text-decoration: none;
+        color: #edf5f5;
+        border-radius: 10px;
+        padding: 0 28px;
+    }
+    
+    .navigationbar a:hover {
+        background: #2cbabd;
+        text-decoration: none;
+        color: #edf5f5;
+    }
+    
+    .navigationbar ul ul {
+        display: none;
+        position: absolute;
+        top: 60px;
+    }
+    
+    .navigationbar ul li:hover>ul {
+        display: inherit;
+    }
+    
+    .navigationbar ul ul li {
+        width: 170px;
+        float: none;
+        display: list-item;
+        position: relative;
+    }
+    
+    .navigationbar ul ul ul li {
+        position: relative;
+        top: -60px;
+        left: 170px;
+    }
+    
+    li>a:after {
+        content: '';
+    }
+    
+    .toggle,
+    [id^=drop] {
+        display: none;
+    }
+    
+    li>a:only-child:after {
+        content: '';
+    }
+    /*Responsive Styles*/
+    
+    @media all and (max-width: 768px) {
+        #logo {
+            display: none;
+        }
+        .navigationbar {
+            display: block;
+            margin-left: 10%;
+        }
+        .toggle+a,
+        .menu {
+            display: block;
+        }
+        .toggle {
+            display: flex;
+            border-color: white;
+            align-items: center;
+            justify-content: center;
+            background-color: #2cbabd;
+            color: white;
+            background-color: white;
+            padding: 0 20px;
+            font-size: 20px;
+            line-height: 60px;
+            border-radius: 100px;
+            text-decoration: none;
+            border: none;
+        }
+        [id^=drop]:checked+ul {
+            display: inline-block;
+        }
+        .navigationbar ul li {
+            margin: 0px;
+            flex-wrap: nowrap;
+            flex-direction: column;
+            justify-content: space-around;
+            display: flex;
+            background-color: #eaf0ef;
+            color: #2cbabd;
+        }
+        .navigationbar ul ul .toggle,
+        .navigationbar ul ul a {
+            padding: 0 px;
+            display: inline-block;
+        }
+        .navigationbar ul ul ul a {
+            padding: 0 80px;
+            display: inline-block;
+        }
+        .navigationbar a:hover,
+        .navigationbar ul ul ul a {
+            background-color: #2cbabd;
+            display: inline-block;
+        }
+        .navigationbar ul li ul li .toggle,
+        .navigationbar ul ul a {
+            background-color: #212121;
+            display: inline-block;
+        }
+        .navigationbar ul ul {
+            float: none;
+            position: static;
+            color: #ffffff;
+            display: inline-block;
+        }
+        .navigationbar ul ul li:hover>ul,
+        .navigationbar ul li:hover>ul {
+            display: inline-block;
+        }
+        .navigationbar ul ul li {
+            display: inline-block;
+            width: 20%;
+        }
+        .navigationbar a {
+            display: flex;
+            color: #2cbabd;
+            flex-direction: row;
+            font-size: 13px;
+            padding: 5px;
+            text-decoration: none;
+            border-radius: 10px;
+        }
+        .navigationbar ul ul ul li {
+            position: static;
+            display: inline-block;
+        }
+    }
+    
+    @media all and (max-width: 330px) {
+        .navigationbar ul li {
+            display: block;
+            width: 94%;
+        }
+    }
