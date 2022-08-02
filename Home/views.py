@@ -88,7 +88,7 @@ class Signup(View):
             print(first_name, last_name, phone, email, password)
             customer.password = make_password(customer.password)
             customer.register()
-            return redirect('productpage')
+            return redirect('/productpage')
         else:
             data = {
                 'error': error_message,
