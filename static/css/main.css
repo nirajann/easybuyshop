@@ -425,3 +425,8 @@ img {
 .navbar-links li a:hover {
     color: #ff3f34;
 }
+
+.searchresult {
+    top: 100px;
+    left: 50px;
+}
