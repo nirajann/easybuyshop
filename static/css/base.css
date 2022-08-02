@@ -243,7 +243,7 @@ html {
 
 .search-box {
     position: absolute;
-    top: 110%;
+    top: 10%;
     left: 1%;
     transform: translate(-100%, );
     border-radius: 50px;
