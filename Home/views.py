@@ -33,10 +33,28 @@ def home(request):
 
 
 def profile(request):
-    customer = Customer.objects.all()
+    context = {}
+    data = Customer.objects.get(user__id=request.session['customer'])
+    context["data"]=data  
   
 
-    return render(request,'Account/profile.html',{'customer': customer})
+    return render(request,'Account/profile.html',context)
+
+def changepassword(request):
+    context = {}
+    check = Customer.objects.filter(user__id=request.session['customer'])
+    if len(check)>0:
+        data = Customer.objects.get(user__id=request.session['customer'])
+        context["data"]=data    
+    if request.method=="POST":
+        fn = request.POST["password"]
+      
+        data.password = fn
+       
+
+
+        context["status"] = "Changes Saved Successfully"
+    return render(request,"Account/changepassword.html",context)
 
 
 class Signup(View):
@@ -734,3 +752,8 @@ def adminlogin(request):
         
                 
     return render(request, 'admin/adminlogin.html')
+
+
+def logoutadmin(request):
+    request.session.clear()
+    return redirect('/adminlogin')
